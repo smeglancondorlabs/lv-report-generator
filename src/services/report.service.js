@@ -24,7 +24,7 @@ const getStatus = (statistic, authorization) =>{
 
 export const buildReports = () =>{
     console.log(configReport)
-    configReport.statistics.forEach(statistic => {
+    configReport.stats.forEach(statistic => {
         getStatus(statistic, configReport.authorization)
     });
 }
