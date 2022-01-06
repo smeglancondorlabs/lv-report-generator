@@ -1,6 +1,6 @@
-import { StateStats } from "./class/state-stats.js";
-import { ImageNowStats } from "./class/image-now-stats.js";
-import { ScreenshotStats } from "./class/screenshot-stats.js";
+import { StateStats } from "./factory/state-stats.js";
+import { ImageNowStats } from "./factory/image-now-stats.js";
+import { ScreenshotStats } from "./factory/screenshot-stats.js";
 
 const reports = {
     StateStats,
