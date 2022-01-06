@@ -1,30 +1,11 @@
 import { configReport } from '../config/report.config.js';
-import axios from 'axios';
+import { ReportFactory } from './report/report-creator.js';
 
-const getStatus = (statistic, authorization) =>{
-    axios({
-        method: 'get',
-        url: statistic.url,
-        headers:{
-            authorization
-        }
-      })
-  .then(function (response) {
-    // handle success
-    console.log(response);
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .then(function () {
-    // always executed
-  });
-}
-
+/** TODO 
+ * - migrate this to a controller.
+ */
 export const buildReports = () =>{
-    console.log(configReport)
-    configReport.stats.forEach(statistic => {
-        getStatus(statistic, configReport.authorization)
+    configReport.stats.forEach(async(statistic) => {
+        console.log(await ReportFactory(statistic).createReport())
     });
 }
