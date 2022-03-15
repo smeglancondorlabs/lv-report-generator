@@ -6,7 +6,7 @@ export class StateStats extends Report{
         let processed = 0;
         const data = (await this.getStatus()).data;
         data.forEach(element => {
-            scheduled += element.count;
+            scheduled += element.newLv + element.oldLv;
             processed += element.processed;
         });
         return {
