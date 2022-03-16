@@ -18,7 +18,7 @@ export class ScreenshotStats extends Report{
             notFound += notFoundData[element].totalScreenshots;
         });
         return {
-            date : new Date(),
+            date : new Date(), //cambiar la fecha por un dia antes
             captured,
             missing,
             notFound,

@@ -13,7 +13,7 @@ const LVStatusReport = new Schema({
   },
   dateOfEntry: {
     type: Date,
-    default: Date.now()
+    default: Date.now() //Cambiar la fecha al dia anterior 
   }
 });
 export default mongoose.model('lv_status_report', LVStatusReport);
