@@ -10,7 +10,6 @@ export class StateStats extends Report{
             processed += element.processed;
         });
         return {
-            date : new Date(), //cambiar la fecha por un dia antes
             scheduled,
             processed,
             notProcessed: scheduled-processed,
