@@ -8,6 +8,6 @@ import { ReportFactory } from './report/report-creator.js';
  */
 export const buildReports = () =>{
     configReport.stats.forEach(async(statistic) => {
-        console.log(await ReportFactory(statistic).createReport())
+        console.table(await ReportFactory(statistic).createReport())
     });
 }

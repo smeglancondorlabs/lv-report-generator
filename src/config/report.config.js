@@ -1,13 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
-
-const date = (format) => {
-    const date = new Date;
-    const formatOne = format.replace('yy',date.getFullYear())
-            .replace('mm',date.getMonth() + 1)
-            .replace('dd',date.getDate() - 1)
-    return formatOne;
-}
+import {calculateDate} from '../utils/dates.js'
 
 export const configReport = {
     stats: [
@@ -20,12 +13,20 @@ export const configReport = {
             }
         },
         {
+            type:"StateStatsSlack",
+            attributes: {
+                authorization: process.env.AUTHORIZATION_SLACK_TOKEN,
+                url: process.env.STATE_STATS_SLACK_URL,
+                model: "",
+            }
+        },
+        {
             type:"ImageNowStats",
             attributes: {
                 authorization: process.env.AUTHORIZATION_TOKEN,
                 url: process.env.IMAGE_NOW_URL,
                 params:{
-                    queuedDate: date("mm/dd/yy")
+                    queuedDate: calculateDate("MM/DD/YYYY")
                 }, 
                 model: "",
             }
@@ -40,7 +41,7 @@ export const configReport = {
                     notFound : process.env.NOT_FOUND_SCREENSHOT_URL
                 },
                 params:{
-                    dateToFilter: date("yy-mm-dd")
+                    dateToFilter: calculateDate("YYYY-MM-DD")
                 }, 
                 model: "",
             }

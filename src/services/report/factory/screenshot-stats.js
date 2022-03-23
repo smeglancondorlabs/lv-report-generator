@@ -18,6 +18,7 @@ export class ScreenshotStats extends Report{
             notFound += notFoundData[element].totalScreenshots;
         });
         return {
+            date: this.params.dateToFilter,
             captured,
             missing,
             notFound,
