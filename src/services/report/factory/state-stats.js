@@ -10,7 +10,6 @@ export class StateStats extends Report{
             processed += element.processed;
         });
         return {
-            date : new Date(),
             scheduled,
             processed,
             notProcessed: scheduled-processed,
