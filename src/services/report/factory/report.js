@@ -1,9 +1,10 @@
 import axios from "axios";
 
 export class Report{
-    constructor({authorization, url, model, params}){
+    constructor({authorization, url, model, name, params}){
         this.authorization = authorization;
         this.url = url;
+        this.name = name;
         this.params = params;
         this.model = model;
     }

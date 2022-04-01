@@ -5,18 +5,15 @@ import {calculateDate} from '../utils/dates.js'
 export const configReport = {
     stats: [
         {
-            type:"StateStats",
-            attributes: {
-                authorization: process.env.AUTHORIZATION_TOKEN,
-                url: process.env.STATE_STATS_URL,
-                model: "",
-            }
-        },
-        {
             type:"StateStatsSlack",
             attributes: {
                 authorization: process.env.AUTHORIZATION_SLACK_TOKEN,
                 url: process.env.STATE_STATS_SLACK_URL,
+                name: 'Boardsnotfinishing',
+                params: {
+                    channel: "C013G46PMEU",
+                    limit: 2
+                },
                 model: "",
             }
         },
@@ -25,6 +22,7 @@ export const configReport = {
             attributes: {
                 authorization: process.env.AUTHORIZATION_TOKEN,
                 url: process.env.IMAGE_NOW_URL,
+                name: "ImageNow",
                 params:{
                     queuedDate: calculateDate("MM/DD/YYYY")
                 }, 
@@ -40,6 +38,7 @@ export const configReport = {
                     missing : process.env.MISSING_SCREENSHOT_URL,
                     notFound : process.env.NOT_FOUND_SCREENSHOT_URL
                 },
+                name: 'Screenshot',
                 params:{
                     dateToFilter: calculateDate("YYYY-MM-DD")
                 }, 
