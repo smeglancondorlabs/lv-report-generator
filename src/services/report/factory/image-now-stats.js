@@ -4,6 +4,7 @@ export class ImageNowStats extends Report{
     createReport = async() =>{
         const data = (await this.getStatus()).data;
         return {
+            name: this.name,
             date: this.params.queuedDate,
             required: data.size,
             captured: data.statuses.completed,
